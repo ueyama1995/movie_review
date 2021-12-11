@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
-  get 'reviews/show'
-  get 'reviews/edit'
-  get 'movies/index'
-  get 'movies/show'
-  get 'customers/show'
-  get 'customers/check'
-  get 'customers/edit'
+
+  #レビューのルーティング
+  resources :reviews
+
+  #映画のルーティング
+  resources :movies
+
+  #顧客のルーティング
+  patch 'customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+  resources :customers, only: [:update, :edit, :update ]
+  get 'customers/my_page' => 'customers#show'
+  get 'customers' => 'customers#check'
+
   devise_for :users
+
   root to:'homes#top'
 end
