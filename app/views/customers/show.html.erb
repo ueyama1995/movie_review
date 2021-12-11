@@ -1,2 +1,23 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<h1>マイページ</h1>
+  <%= form_with model: @customer, local:true do |f| %>
+      <div class="field">
+        <%= f.label :姓 %><br />
+       
+      </div>
+      <div class="field">
+        <%= f.label :名 %><br />
+      
+      </div>
+
+      <div class="field">
+        <%= f.label :ニックネーム %><br />
+        
+      </div>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+       
+      </div>
+  <% end %>
+<%= link_to "編集する"  %>
+<%= link_to "退会する" ,customers_path %>
