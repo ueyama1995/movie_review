@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   #顧客のルーティング
   patch 'customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-  resources :customers, only: [:update, :edit, :update ]
+  resources :customers, only: [:update, :edit ]
   get 'customers/my_page' => 'customers#show'
   get 'customers' => 'customers#check'
 

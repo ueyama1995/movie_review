@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+    <title>movie_review</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,6 +13,12 @@
     <% if user_signed_in? %>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+      <%= link_to 'マイページ', customers_my_page_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to '作品一覧', movies_path %>
       </li>
     <% else %>
       <li>
