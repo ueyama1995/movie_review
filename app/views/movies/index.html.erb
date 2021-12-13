@@ -1,5 +1,10 @@
 <h1>映画一覧</h1>
-<p>ジャンル一覧が出るようにする</p>
-<%= link_to "レビュー一覧へ", reviews_path %>
-<p>画像を表示する</p>
-<%= link_to "投稿する",new_review_path %>
+<% @movies.each do |movie| %>
+    <%= f.label :タイトル %><br />
+    <%= movie.title %>
+  <p>ジャンル一覧が出るようにする</p>
+  <p>画像を表示する</p>
+  <p>レビュー数</p>
+<% end %>
+ 
+  <%= link_to "投稿する",new_review_path %>

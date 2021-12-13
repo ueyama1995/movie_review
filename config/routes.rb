@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   #レビューのルーティング
-  resources :reviews, only: [:update, :edit, :index, :destroy, :new ]
+  resources :reviews
 
   #映画のルーティング
   resources :movies

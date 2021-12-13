@@ -1,5 +1,7 @@
 <h1>レビュー一覧</h1>
-<p>タイトル</p>
-<p>ジャンル検索</p>
-<p>コメント数</p>
-<%= link_to "投稿する",new_review_path %>
+<% @reviews.each do |review| %>
+    投稿者(ニックネーム)
+    レビュー内容
+    いいね・お気に入り
+<% end %>
+    <%= link_to "投稿する",new_review_path %>

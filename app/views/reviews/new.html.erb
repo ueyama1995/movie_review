@@ -1,15 +1,19 @@
-
-<table>
-  <div class="form-grop row">
-    <div class="col-form-label col-sm-3">
-      <tr>
-        <h1>レビュー投稿</h1>
-        <p>タイトル</p>
-        <p>ジャンル</p>
-        <p>星評価</p>
-        <p>レビュー書く所</p>
-        <%= link_to "投稿する" %>
-      </tr>
-     </div>
-  </div>
-</table>
+<%= form_with model:@review, local:true do |f| %>
+  <table>
+    <div class="form-grop row">
+      <div class="col-form-label col-sm-3">
+        <tr>
+          <h1>レビュー投稿</h1>
+          
+            <p>タイトル</p>
+            <%= f.text_field :title, autofocus: true %>
+            <p>ジャンル</p>
+            <p>星評価</p>
+            <p>レビュー書く所</p>
+            <%= f.text_area :comment, autofocus: true %>
+            <%= f.submit '投稿する' %>
+        </tr>
+       </div>
+    </div>
+  </table>
+<% end %>
