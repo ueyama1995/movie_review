@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   #レビューのルーティング
   resources :reviews
+  resource :likes, only: [:create, :destroy]
 
   #映画のルーティング
   resources :movies

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_062910) do
+ActiveRecord::Schema.define(version: 2021_12_15_093237) do
 
   create_table "customers", force: :cascade do |t|
     t.string "last_name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2021_12_13_062910) do
     t.string "nickname"
     t.string "email"
     t.boolean "is_deleted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
