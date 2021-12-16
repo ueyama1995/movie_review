@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'relationships/followings'
+  get 'relationships/followers'
   #レビューのルーティング
-  resources :reviews
+  resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit]
   resource :likes, only: [:create, :destroy]
 
   #映画のルーティング

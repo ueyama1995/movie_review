@@ -14,15 +14,17 @@ class ReviewsController < ApplicationController
   end
 
   def show
-
+    @review = Review.find(params[:id])
   end
 
   def edit
-
+    @review = Review.find(params[:id])
   end
 
   def update
     @review = Review.find(prams[:id])
+    review.update(review_params)
+    redirect_to edit_review_path(review.id)
   end
 
   def destroy

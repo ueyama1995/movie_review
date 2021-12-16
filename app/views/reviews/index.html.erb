@@ -1,7 +1,12 @@
 <h1>レビュー一覧</h1>
-<% @reviews.each do |review| %>
-    投稿者(ニックネーム)
-    レビュー内容
-    いいね・お気に入り
-<% end %>
-    <%= link_to "投稿する",new_review_path %>
+<table>
+    <% @reviews.each do |review| %>
+        投稿日時
+        <td><%= l customer.created_at %></td>
+        投稿者(ニックネーム)
+        レビュー内容
+        <%= review.review %>
+        いいね・お気に入り
+    <% end %>
+        <%= link_to "投稿する",new_review_path %>
+</table>
