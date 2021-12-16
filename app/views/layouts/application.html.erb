@@ -15,7 +15,7 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
       <li>
-      <%= link_to 'マイページ', customers_my_page_path(current_user.id) %>
+      <%= link_to 'マイページ', users_my_page_path(current_user.id) %>
       </li>
       <li>
         <%= link_to '作品一覧', movies_path %>

@@ -1,8 +1,10 @@
-<h1>レビュー詳細</h1>
-<p>タイトル</p>
-<p>ジャンル</p>
-<p>星評価</p>
-<p> レビュー内容</p>
-<p>レビューを変更する</p>
-<p>レビューを消去する</p>
-<%= link_to '戻る',reviews_path %>
+<%= form_with model:@review, local:true do |f| %>
+    <h1>レビュー詳細</h1>
+    <p>タイトル</p>
+    <p>ジャンル</p>
+    <p>星評価</p>
+    <p> レビュー内容</p>
+    <p><%= link_to "レビューを変更する",edit_review_path %></p>
+    <p><%= link_to "レビューを消去する",method: :delete %></p>
+    <%= link_to '戻る',reviews_path %>
+<% end %>

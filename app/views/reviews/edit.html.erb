@@ -1,9 +1,12 @@
-<h1>レビュー変更</h1>
-<p>タイトル</p>
-<p>ジャンル</p>
-<p>星評価</p>
-<p>レビュー書く所</p>
-
-<!--後でsubmitに変更する-->
-<%= link_to 'レビューを変更する' %> </p>
-<%= link_to '戻る',review_path %>
+<%= form_with model:@review, local:true do |f| %>
+    <h1>レビュー変更</h1>
+    <p>タイトル</p>
+    <%= f.text_field :title, autofocus: true %>
+    <p>ジャンル</p>
+    <%= f.select :review, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
+    <p>星評価</p>
+    <p>レビュー</p>
+    <%= f.text_area :comment, autofocus: true %>
+  <%= f.submit 'レビューを更新する' %>
+  <%= link_to '戻る',review_path %>
+<% end %>

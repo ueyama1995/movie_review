@@ -1,9 +1,9 @@
 class Review < ApplicationRecord
-  belongs_to :customer
+  belongs_to :user
   belongs_to :movie
   has_many :likes, dependent: :destroy
 
-  def favorited_by?(customer)
-    likes.where(customer_id: customer.id).exists?
+  def favorited_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 end

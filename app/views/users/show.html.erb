@@ -1,0 +1,23 @@
+<h1>マイページ</h1>
+  <%= form_with model: @user, local:true do |f| %>
+      <div class="field">
+        <%= f.label :姓 %><br/>
+       <%= @user.last_name %>
+      </div>
+      <div class="field">
+        <%= f.label :名 %><br/>
+        <%= @user.first_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ニックネーム %><br/>
+        <%= @user.nickname %>
+      </div>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br/>
+        <%= @user.email %>
+      </div>
+  <% end %>
+<%= link_to "編集する" ,edit_user_path(@user) %>
+<%= link_to "退会する" ,users_path %>

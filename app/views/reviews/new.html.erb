@@ -4,12 +4,12 @@
       <div class="col-form-label col-sm-3">
         <tr>
           <h1>レビュー投稿</h1>
-          
             <p>タイトル</p>
             <%= f.text_field :title, autofocus: true %>
             <p>ジャンル</p>
-            <p>星評価</p>
-            <p>レビュー書く所</p>
+            <%= f.select :review, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
+            <p>星評価　javascriptで設定</p>
+            <p>レビュー</p>
             <%= f.text_area :comment, autofocus: true %>
             <%= f.submit '投稿する' %>
         </tr>
