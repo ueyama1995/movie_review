@@ -17,4 +17,5 @@ class UsersController < ApplicationController
     redirect_to users_my_page_path
     end
   end
+  
 end

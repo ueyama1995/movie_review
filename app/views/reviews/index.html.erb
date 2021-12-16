@@ -3,11 +3,13 @@
   <table>
       <% @reviews.each do |review| %>
           投稿日時
-          <td><%= l review.created_at %></td>
+          <td><%= l review.created_at %>
           投稿者(ニックネーム)
+          <%= review.user.nickname %>
           レビュー内容
           <%= review.comment %>
           いいね・お気に入り
+          <td>
       <% end %>
           <%= link_to "投稿する",new_review_path %>
   </table>
