@@ -9,31 +9,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-      <%= link_to 'マイページ', users_my_page_path %>
-      </li>
-      <li>
-        <%= link_to '作品一覧', movies_path %>
-      </li>
-      <li>
-        <%= link_to "レビュー一覧へ", reviews_path %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "当サイトについての注意事項" ,homes_about_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-    <%= yield %>
-  </body>
+  <table>
+    <tbody>
+      <% if user_signed_in? %>
+        <tr>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </tr>
+        <tr>
+        <%= link_to 'マイページ', users_my_page_path %>
+        </tr>
+        <tr>
+          <%= link_to '作品一覧', movies_path %>
+        </tr>
+        <tr>
+          <%= link_to "レビュー一覧へ", reviews_path %>
+        </tr>
+      <% else %>
+        <tr>
+          <%= link_to "当サイトについての注意事項" ,homes_about_path %>
+        </tr>
+        <tr>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </tr>
+        <tr>
+          <%= link_to "ログイン", new_user_session_path %>
+        </tr>
+      <% end %>
+      <%= yield %>
+    </tbody>
+  </table>
 </html>

@@ -18,4 +18,9 @@ class UsersController < ApplicationController
     end
   end
   
+  private
+   def review_params
+    params.require(:user).permit(:last_name,)
+   end
+  
 end

@@ -2,15 +2,16 @@
 <%= form_with model:@review, local:true do |f| %>
   <table>
       <% @reviews.each do |review| %>
+          <p>
           投稿日時
-          <td><%= l review.created_at %>
+          <%= l review.created_at %>
           投稿者(ニックネーム)
           <%= review.user.nickname %>
           レビュー内容
           <%= review.comment %>
           いいね・お気に入り
-          <td>
+          </p>
       <% end %>
-          <%= link_to "投稿する",new_review_path %>
   </table>
+  <%= link_to "投稿する",new_review_path %>
 <% end %>
