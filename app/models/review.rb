@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :movie
+  belongs_to :movie , optional: true
   has_many :likes, dependent: :destroy
 
   def favorited_by?(user)

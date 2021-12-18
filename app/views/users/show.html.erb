@@ -1,31 +1,31 @@
 <h1>マイページ</h1>
   <%= form_with model: @user, local:true do |f| %>
       <div class="field">
-        <%= f.label :姓 %><br/>
-       <%= @user.last_name %>
+        <%= f.label :姓 %>: <%= @user.last_name %><br/>
       </div>
       <div class="field">
-        <%= f.label :名 %><br/>
-        <%= @user.first_name %>
+        <%= f.label :名 %>:<%= @user.first_name %><br/>
       </div>
       </div>
       <div class="field">
-        <%= f.label :ニックネーム %><br/>
-        <%= @user.nickname %>
+        <%= f.label :ニックネーム %>:<%= @user.nickname %><br/>
       </div>
       <div class="field">
-        <%= f.label :メールアドレス %><br/>
-        <%= @user.email %>
+        <%= f.label :メールアドレス %>:<%= @user.email %><br/>
       </div>
       <div>
-        フォロー数
+        レビュー数:
       </div>
       <div>
-        フォロワー数
+        フォロー数:
       </div>
       <div>
-        いいねした数
+        フォロワー数:
       </div>
+      <div>
+        いいねした数:
+      </div>
+      <%= link_to '投稿する',new_review_path, data: {"turbolinks" => false} %>
   <% end %>
-<%= link_to "編集する" ,edit_user_path(@user) %>
+<%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false} %>
 <%= link_to "退会する" ,users_path %>

@@ -1,10 +1,14 @@
 <%= form_with model:@review, local:true do |f| %>
     <h1>レビュー詳細</h1>
+    投稿日時
+    <%= l @review.created_at %>
     <p>タイトル</p>
+    <%= @review.title %>
     <p>ジャンル</p>
     <p>星評価</p>
     <p> レビュー内容</p>
-    <p><%= link_to "レビューを変更する",edit_review_path %></p>
-    <p><%= link_to "レビューを消去する",method: :delete %></p>
+    <%= @review.comment %>
+    <p><%= link_to "レビューを変更する",edit_review_path %></p> <!-- ここもエラーがでるはず-->
+    <p><%= link_to "レビューを消去する",review_path(@review),method: :delete %></p>
     <%= link_to '戻る',reviews_path %>
 <% end %>

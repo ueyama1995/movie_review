@@ -7,11 +7,14 @@
           <%= l review.created_at %>
           投稿者(ニックネーム)
           <%= review.user.nickname %>
+          タイトル
+          <%= review.title %>
           レビュー内容
           <%= review.comment %>
           いいね・お気に入り
+          <%=link_to "詳細を見る",review_path(review.id) %>
           </p>
       <% end %>
   </table>
-  <%= link_to "投稿する",new_review_path %>
+  <%= link_to "投稿する",new_review_path, data: {"turbolinks" => false} %>
 <% end %>

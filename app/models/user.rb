@@ -25,4 +25,5 @@ has_many :followers, through: :reverse_of_relationships, source: :follower
       followings.include?(user)
     end
 
+
 end
