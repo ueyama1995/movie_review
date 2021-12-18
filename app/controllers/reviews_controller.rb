@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     # review.movie = find_by(params[:movie_id]) ## あとで変える,　パラメーターでmovie_idをもってこれるようにする
     review.user = current_user
-    
+
     #binding.pry
     review.save!
     redirect_to reviews_path
@@ -27,8 +27,8 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to reviews_path(review.id)
+    @review.update(review_params)
+    redirect_to reviews_path(@review.id)
   end
 
   def destroy

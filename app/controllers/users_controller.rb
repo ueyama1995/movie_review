@@ -3,10 +3,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def check
-    @user = current_user
-  end
-
   def edit
     @user = current_user
   end
@@ -19,12 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
-   def withdrawal
-      @user = current_user
-      @user.update(is_deleted: true)
-      reset_session
-      redirect_to root_path
-    end
+  def withdrawal
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
 
   private
    def user_params
