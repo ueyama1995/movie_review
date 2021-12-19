@@ -73,3 +73,6 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'dotenv-rails'
 gem 'rubocop'
 gem 'rails-i18n'
+group :production do
+  gem 'mysql2'
+end
