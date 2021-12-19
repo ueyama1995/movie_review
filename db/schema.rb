@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_104953) do
+ActiveRecord::Schema.define(version: 2021_12_19_064405) do
 
   create_table "customers", force: :cascade do |t|
     t.string "last_name"
@@ -25,23 +25,16 @@ ActiveRecord::Schema.define(version: 2021_12_16_104953) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "customer_id"
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.float "review"
     t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_12_16_104953) do
     t.string "title"
     t.text "review"
     t.text "comment"
+    t.integer "review_id"
   end
 
   create_table "users", force: :cascade do |t|

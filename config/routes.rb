@@ -5,12 +5,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  get 'relationships/followings'
-  get 'relationships/followers'
+   
   #レビューのルーティング
   resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit, :update]
-
-  resource :likes, only: [:create, :destroy]
+   resource :likes, only: [:create, :destroy]
 
   #映画のルーティング
   resources :movies

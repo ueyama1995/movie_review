@@ -1,0 +1,14 @@
+  <% if review.liked_by?(current_user) %>
+    <p>
+    <%= link_to likes_path, method: :delete do %>
+      ♥<%= review.likes.count %>
+    <% end %>
+    </p>
+    <% else %>
+    <p>
+    <%= link_to likes_path, method: :post do %>
+      ♡<%= review.likes.count %>
+
+    <% end %>
+    </p>
+  <% end %>
