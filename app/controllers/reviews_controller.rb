@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @review.update(review_params)
-    redirect_to reviews_path(@review.id)
+    redirect_to review_path(@review.id)
   end
 
   def destroy

@@ -8,4 +8,5 @@ class Review < ApplicationRecord
   end
 
   #validates :review,presence:true
+
 end

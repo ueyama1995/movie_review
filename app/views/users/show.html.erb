@@ -14,10 +14,10 @@
         <%= f.label :メールアドレス %>:<%= @user.email %><br/>
       </div>
       <div>
-        レビュー数:
+        レビュー数:<%= @user.review_ids.count %>
       </div>
       <div>
-        いいねした数:
+        いいねした数:非同期が終わってから<!--%= @user.review_ids.like.count %>-->
       </div>
       <%= link_to '投稿する',new_review_path, data: {"turbolinks" => false} %>
   <% end %>

@@ -4,7 +4,8 @@
     <%= f.text_field :title, autofocus: true %>
     <p>ジャンル</p>
     <%= f.select :review, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
-    <p>星評価</p>
+    <p>評価</p>
+    
     <p>レビュー</p>
     <%= f.text_area :comment, autofocus: true %>
   <%= f.submit 'レビューを更新する' %>

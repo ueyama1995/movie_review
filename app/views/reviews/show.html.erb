@@ -5,11 +5,13 @@
     <p>タイトル</p>
     <%= @review.title %>
     <p>ジャンル</p>
-    <p>星評価</p>
+    <%= @review.review %>
+    <p>評価</p>
+    
     <p> レビュー内容</p>
     <%= @review.comment %>
     <%= render 'reviews/like', review: @review %>
-    <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false} %></p> 
+    <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false} %></p>
     <p><%= link_to "レビューを消去する",review_path(@review),method: :delete %></p>
     <%= link_to '戻る',reviews_path %>
 <% end %>

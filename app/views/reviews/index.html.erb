@@ -1,19 +1,28 @@
   <h1>レビュー一覧</h1>
-  <%= link_to "投稿する",new_review_path, data: {"turbolinks" => false} %>
+  <%= link_to "投稿するページへ",new_review_path, data: {"turbolinks" => false} %>
+   <%= paginate @reviews %>
     <table>
         <% @reviews.each do |review| %>
             <p>
             投稿日時
+            </p>
             <%= l review.created_at %>
-            投稿者
+            <p>投稿者
             <%= review.user.nickname %>
-            タイトル
+            </p>
+            <p>タイトル
             <%= review.title %>
-            レビュー内容
+            </p>
+            <p>ジャンル
+            <%= review.review %>
+            </p>
+            <p>評価</p>
+            
+            <p>レビュー内容
             <%= review.comment %>
-            <%= render 'reviews/like', review: review %>
-            <%=link_to "詳細を見る",review_path(review.id) %>
+            
+            <p><%= render 'reviews/like', review: review %></p>
+            <p><%=link_to "詳細を見る",review_path(review.id) %>
             </p>
     </table>
   <% end %>
-  <%= paginate @reviews %>
