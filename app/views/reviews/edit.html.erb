@@ -8,6 +8,8 @@
     
     <p>レビュー</p>
     <%= f.text_area :comment, autofocus: true %>
-  <%= f.submit 'レビューを更新する' %>
+    <div class="px-5 px-sm-0">
+      <%= f.submit 'レビューを更新する',class: "btn btn-success" %>
+    </div>
 <% end %>
   <%= link_to '戻る',review_path %>

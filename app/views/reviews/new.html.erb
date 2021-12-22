@@ -5,17 +5,19 @@
         <tr>
           <h1>レビュー投稿</h1>
             <p>タイトル</p>
-            <%= f.text_field :title, autofocus: true %>
+            <%= f.text_field :title,rows:'3', autofocus: true %>
             <p>ジャンル</p>
             <%= f.select :review, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
             <!--<p>評価</p>-->
             
             <p>レビュー</p>
-            <%= f.text_area :comment, autofocus: true %>
-            <%= f.submit '投稿する' %>
+            <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>
+            <div class="px-5 px-sm-0">
+              <%= f.submit '投稿する',class: "btn btn-success" %>
+            </div>
         </tr>
        </div>
     </div>
   </table>
 <% end %>
-<%= link_to '戻る',reviews_path %>
+<%= link_to '戻る',reviews_path,class: "text-danger" %>

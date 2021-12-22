@@ -1,11 +1,11 @@
 <h1>マイページ</h1>
+<table>
   <%= form_with model: @user, local:true do |f| %>
       <div class="field">
         <%= f.label :姓 %>: <%= @user.last_name %><br/>
       </div>
       <div class="field">
         <%= f.label :名 %>:<%= @user.first_name %><br/>
-      </div>
       </div>
       <div class="field">
         <%= f.label :ニックネーム %>:<%= @user.nickname %><br/>
@@ -14,12 +14,14 @@
         <%= f.label :メールアドレス %>:<%= @user.email %><br/>
       </div>
       <div>
-        レビュー数:<%= @user.review_ids.count %>
+        レビュー数:
+        <%= @user.review_ids.count %>
       </div>
       <div>
-        いいねした数:非同期が終わってから<!--%= @user.review_ids.like.count %>-->
+        いいねした数:非同期が終わってからする<!--%= @user.review_ids.like.count %>-->
       </div>
-      <%= link_to '投稿する',new_review_path, data: {"turbolinks" => false} %>
   <% end %>
-<%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false} %>
-<%= link_to "退会する" ,users_path %>
+  <ul><%= link_to '投稿する',new_review_path, data: {"turbolinks" => false},class: "btn btn-success"%></ul>
+  <ul><%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false},class: "btn btn-primary" %></ul>
+  <ul><%= link_to "退会する" ,users_path,class: "btn btn-danger" %></ul>
+ </table>

@@ -1,5 +1,5 @@
   <h1>レビュー一覧</h1>
-  <%= link_to "投稿するページへ",new_review_path, data: {"turbolinks" => false} %>
+  <%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %>
    <%= paginate @reviews %>
     <table>
         <% @reviews.each do |review| %>
@@ -7,9 +7,9 @@
             投稿日時
             </p>
             <%= l review.created_at %>
-            <p>投稿者
+            <p>投稿者</p>
             <%= review.user.nickname %>
-            </p>
+            
             <p>タイトル
             <%= review.title %>
             </p>

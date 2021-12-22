@@ -1,44 +1,17 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <title>movie_review</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <table>
-    <tbody>
-      <% if user_signed_in? %>
-        <tr>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </tr>
-        <tr>
-        <%= link_to 'マイページ', users_my_page_path %>
-        </tr>
-        <tr>
-          <%= link_to '作品一覧', movies_path %>
-        </tr>
-        <tr>
-          <%= link_to "レビュー一覧へ", reviews_path %>
-        </tr>
-      <% else %>
-        <tr>
-          <%= link_to "当サイトについての注意事項" ,homes_about_path %>
-        </tr>
-        <tr>
-          <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false} %>
-        </tr>
-        <tr>
-          <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false} %>
-        </tr>
-      <% end %>
-      <% if user_signed_in? %>
-      <tr class="navbar-nav">ようこそ、<%= current_user.nickname %>さん！</tr>
-      <% end %>
+  <body>
+    <%= render 'layouts/header' %>
+    <main>
       <%= yield %>
-    </tbody>
-  </table>
+    </main>
+  </body>
 </html>
