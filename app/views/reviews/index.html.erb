@@ -12,13 +12,21 @@
             <%= review.user.nickname %>
 
             <p>タイトル
-            <%= review.title %>
+            %= review.movie.title %
             </p>
             <p>ジャンル
-            <%= review.category %>
+            %= review.movie.category_id %
             </p>
             <p>評価</p>
-
+            <td class="review-value" data-score="<%= review.value %>"></td>
+              <script>
+                $('.review-value').raty({
+                  readOnly: true,
+                  score: function() {
+                  },
+                  path: '/assets/'
+                });
+              </script>
             <p>レビュー内容
             <%= review.comment %>
 

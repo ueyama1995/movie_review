@@ -3,11 +3,21 @@
     投稿日時
     <%= l @review.created_at %>
     <p>タイトル</p>
-    <%= @review.title %>
+    %= @review.title %
     <p>ジャンル</p>
-    <%= @review.category %>
-    <p>評価</p>
-
+    %= @review.movie.category_id %
+    <div id="value_stars">
+      <label>評価</label>
+      <%= @review.value %>
+    </div>
+      <script>
+        $('#value_stars').raty({
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'review[value]' //登録するモデル名とカラム名
+        });
+      </script>
     <p> レビュー内容</p>
     <%= @review.comment %>
     <%= render 'reviews/like', review: @review %>

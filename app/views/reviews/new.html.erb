@@ -7,8 +7,19 @@
             <p>タイトル</p>
             <%= f.text_field :title,rows:'3', autofocus: true %>
             <p>ジャンル</p>
-            <%= f.select :category, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
-            <!--<p>評価</p>-->
+            <%= f.select :category_id, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
+            <div id="value_stars">
+              <label>評価</label>
+            </div>
+            <script>
+              $('#value_stars').raty({
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                scoreName: 'review[value]' //登録するモデル名とカラム名
+              });
+            </script>
+            
             
             <p>レビュー</p>
             <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>

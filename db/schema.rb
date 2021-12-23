@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_12_22_131347) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "category_id", null: false
+    t.integer "category_id", null: false #ジャンル
     t.string "image"
     t.integer "movie_id"
     t.integer "review_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_12_22_131347) do
     t.integer "movie_id"
     t.integer "review_id"
     t.text "comment", null: false
-    t.float "value", null: false
+    t.float "value", null: false　#星評価
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
