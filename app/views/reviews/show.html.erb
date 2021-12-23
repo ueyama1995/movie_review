@@ -5,9 +5,9 @@
     <p>タイトル</p>
     <%= @review.title %>
     <p>ジャンル</p>
-    <%= @review.review %>
+    <%= @review.category %>
     <p>評価</p>
-    
+
     <p> レビュー内容</p>
     <%= @review.comment %>
     <%= render 'reviews/like', review: @review %>
