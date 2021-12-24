@@ -1,29 +1,98 @@
-<%= form_with model:@review, local:true do |f| %>
-    <h1>レビュー詳細</h1>
-    投稿日時
-    <%= l @review.created_at %>
-    <p>タイトル</p>
-    %= @review.title %
-    <p>ジャンル</p>
-    %= @review.movie.category_id %
-    <div id="value_stars">
-      <label>評価</label>
-      <%= @review.value %>
-    </div>
-      <script>
-        $('#value_stars').raty({
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'review[value]' //登録するモデル名とカラム名
-        });
-      </script>
-    <p> レビュー内容</p>
-    <%= @review.comment %>
-    <%= render 'reviews/like', review: @review %>
-    <% if @review.user == current_user %>
-      <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false},class: "btn btn-primary" %></p>
-      <p><%= link_to "レビューを消去する",review_path(@review),method: :delete, data: { confirm: "本当に消去されますか?"},class: "btn btn-danger"  %></p>
-    <% end %>
-    <%= link_to '戻る',reviews_path %>
-<% end %>
+
+
+      <%= form_with model:@review, local:true do |f| %>
+          <h1>レビュー詳細</h1>
+        <% if @review.user == current_user %>
+          <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false},class: "btn btn-primary" %></p>
+          <p><%= link_to "レビューを消去する",review_path(@review),method: :delete, data: { confirm: "本当に消去されますか?"},class: "btn btn-danger"  %></p>
+        <% end %>
+          <table class="table table-bordered table-condensed">
+            <tbody>
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>投稿日時</td>
+                    <td class="info border border-dark table-active">
+                      <%= l @review.created_at %><br/>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>ニックネーム</td>
+                    <td class="info border border-dark table-active">
+                      <%= @review.user.nickname %><br/>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>タイトル</td>
+                    <td class="info border border-dark table-active">
+                      %= @review.movie.title %
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>ジャンル</td>
+                    <td class="info border border-dark table-active">
+                      %= @review.movie.category_id %<br/>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>評価</td>
+                    <td class="review-value" data-score="<%= @review.value %>"></td>
+                      <script>
+                        $('.review-value').raty({
+                        readOnly: true,
+                        score: function() {
+                        },
+                        path: '/assets/'
+                        });
+                      </script>
+                  </tr>
+                </div>
+              </div>
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>レビュー</td>
+                    <td class="info border border-dark table-active">
+                      <%= @review.comment %><br/>
+                    </td>
+                  </tr>
+                </div>
+              </div>    
+                    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark">
+                    <td>いいね</td>
+                    <td class="info border border-dark table-active">
+                      <%= render 'reviews/like', review: @review %><br/>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+            </tbody>
+          </table>
+      <% end %>          
+        <%= link_to '戻る',reviews_path,class: "text-danger" %>
+
+    
