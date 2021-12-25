@@ -11,10 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    # review.movie = find_by(params[:movie_id]) ## あとで変える,　パラメーターでmovie_idをもってこれるようにする
     review.user = current_user
-
-    #binding.pry
     review.save!
     redirect_to reviews_path
   end
@@ -42,7 +39,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :movie_id, :value, :comment,:review_id)
+    params.require(:review).permit(:user_id, :movie_id, :value, :comment,:review_id,:category,:title)
   end
 
 end

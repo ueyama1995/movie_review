@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   }
    
   #レビューのルーティング
-  resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit, :update]
+  resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
    resource :likes, only: [:create, :destroy]
-
+  end
+  
   #映画のルーティング
   resources :movies
 
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
 
   root to:'homes#top'
   get 'homes/about' => 'homes#about'
+  get 'search' => 'searches#search'
 end

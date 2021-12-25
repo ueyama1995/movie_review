@@ -18,7 +18,7 @@
                   </tr>
                 </div>
               </div>
-                    
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
@@ -29,29 +29,33 @@
                   </tr>
                 </div>
               </div>
-                    
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
                     <td>タイトル</td>
                     <td class="info border border-dark table-active">
-                      %= @review.movie.title %
+                      <%= @review.title %>
                     </td>
                   </tr>
                 </div>
               </div>
-                    
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
                     <td>ジャンル</td>
                     <td class="info border border-dark table-active">
-                      %= @review.movie.category_id %<br/>
+                      <% if @review.category == 0 %>
+                        洋画
+                      <% elsif @review.category == 1 %>
+                        邦画
+                      <% end %>
                     </td>
                   </tr>
                 </div>
               </div>
-                    
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
@@ -68,7 +72,7 @@
                   </tr>
                 </div>
               </div>
-                    
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
@@ -78,13 +82,13 @@
                     </td>
                   </tr>
                 </div>
-              </div>    
-                    
+              </div>
+
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark">
                     <td>いいね</td>
-                    <td class="info border border-dark table-active">
+                    <td class="info border border-dark table-active" id = "like_buttons_<%= @review.id %>">
                       <%= render 'reviews/like', review: @review %><br/>
                     </td>
                   </tr>
@@ -92,7 +96,7 @@
               </div>
             </tbody>
           </table>
-      <% end %>          
+      <% end %>
         <%= link_to '戻る',reviews_path,class: "text-danger" %>
 
-    
+

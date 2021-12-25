@@ -8,7 +8,7 @@
       <td class="nav__wrapper">
         <% if user_signed_in? %>
          <td class="header-btn"><%= link_to 'マイページ', users_my_page_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-pager' %></td>
-         <td class="header-btn"><%= link_to '作品一覧', movies_path , class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-file-video' %></td>
+         
          <td class="header-btn"><%= link_to "レビュー一覧へ", reviews_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info far fa-file-pdf' %></td>
          <td class="header-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-sign-out-alt',data: { confirm: "ログアウトしますか?"} %></td>
         <% else %>

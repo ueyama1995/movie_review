@@ -1,10 +1,12 @@
-  
+
   <div class='container'>
    <div class='row'>
     <div class='mx-auto col-5 py-3'>
      <div class="row offset-1 mb-4 ">
               <h1>レビュー一覧</h1>
       <tp><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></tp>
+            <%= render 'reviews/search', review: @review %>
+            <%= paginate @reviews %>
             <% @reviews.each do |review| %>
                <table class="table table-bordered table-condensed">
                   <tbody>
@@ -18,7 +20,7 @@
                         </tr>
                       </div>
                     </div>
-                    
+
                     <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
@@ -29,46 +31,42 @@
                         </tr>
                       </div>
                     </div>
-                    
+
                     <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
                           <td>タイトル</td>
                           <td class="info border border-dark table-active">
-                          %= review.movie.title %<br/>
+                          <%= review.title %>
                           </td>
                         </tr>
                       </div>
                     </div>
-                    
+
                     <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
                           <td>ジャンル</td>
                           <td class="info border border-dark table-active">
-                          %= review.movie.category_id %<br/>
+                        <% if review.category == 0 %>
+                        洋画
+                      <% elsif review.category == 1 %>
+                        邦画
+                      <% end %>
                           </td>
                         </tr>
                       </div>
                     </div>
-                    
+
                      <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
                           <td>評価</td>
                           <td class="review-value" data-score="<%= review.value %>"></td>
-                          <script>
-                            $('.review-value').raty({
-                              readOnly: true,
-                              score: function() {
-                              },
-                              path: '/assets/'
-                            });
-                          </script>
                         </tr>
                       </div>
                     </div>
-                    
+
                     <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
@@ -78,26 +76,34 @@
                           </td>
                         </tr>
                       </div>
-                    </div>    
-                    
+                    </div>
+
                     <div class="form-grop row">
                       <div class="col-form-label col-sm-3">
                         <tr class="col-xs-5 border border-dark">
                           <td>いいね</td>
-                          <td class="info border border-dark table-active">
-                           <%= render 'reviews/like', review: review %><br/>
+                          <td class="info border border-dark table-active" id = "like_buttons_<%= review.id %>">
+                           <%= render 'reviews/like', review: review %>
                           </td>
                         </tr>
                       </div>
-                    </div>        
-                        <p></p>
-                        <%= paginate @reviews %>
+                    </div>
+
                         <p><%=link_to "詳細を見る",review_path(review.id),class: "btn btn-success" %>
                         </p>
-                    <% end %>
                   </tbody>
                </table>
+            <% end %>
+
      </div>
     </div>
    </div>
   </div>
+  <script>
+    $('.review-value').raty({
+    readOnly: true,
+    score: function() {
+    },
+    path: '/assets/'
+    });
+  </script>
