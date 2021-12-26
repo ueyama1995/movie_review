@@ -1,0 +1,42 @@
+<h2>タイトル名"<%= @word %>" で検索した結果 </h2>
+<table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+       <th></th>
+       <th>タイトル</th>
+       <th>ジャンル</th>
+       <th>投稿者</th>
+       <th>レビュー</th>
+       <th>評価</th>
+       <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @review.each do |review| %>
+       <tr>
+        <td>
+         <%= link_to(review.user) do %><!--その映画の投稿詳細-->
+          <% end %>
+        </td>
+        <td>
+         <%= link_to review.title, review_path(review.id) %><!--タイトル-->
+        </td>
+        <td>
+          <% if review.category == 0 %><!--洋画or邦画-->
+            洋画
+          <% elsif review.category == 1 %>
+            邦画
+          <% end %>
+        </td>
+         <td>
+         <%= review.user.nickname %><!--ニックネーム-->
+        </td>
+        <td>
+         <%= review.comment %><!--レビュー-->
+        </td>
+        <td class="review-value" data-score="<%= review.value %>"></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+

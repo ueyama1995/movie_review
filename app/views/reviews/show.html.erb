@@ -48,7 +48,7 @@
                     <td class="info border border-dark table-active">
                       <% if @review.category == 0 %>
                         洋画
-                      <% elsif @review.category == 1 %>
+                      <% else @review.category == 1 %>
                         邦画
                       <% end %>
                     </td>
@@ -61,14 +61,7 @@
                   <tr class="col-xs-5 border border-dark">
                     <td>評価</td>
                     <td class="review-value" data-score="<%= @review.value %>"></td>
-                      <script>
-                        $('.review-value').raty({
-                        readOnly: true,
-                        score: function() {
-                        },
-                        path: '/assets/'
-                        });
-                      </script>
+
                   </tr>
                 </div>
               </div>

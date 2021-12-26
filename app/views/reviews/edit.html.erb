@@ -1,10 +1,14 @@
-
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
       <%= form_with model:@review, local:true do |f| %>
           <h1>レビュー変更</h1>
           <p>タイトル</p>
           <%= f.text_field :title, autofocus: true %>
           <p>ジャンル</p>
-          <%= f.select :review, [["洋画", "洋画"], ["邦画", "邦画"]], include_blank: "選択して下さい" %>
+          <%= f.select :category, [["洋画", 0], ["邦画", 1]], include_blank: "選択して下さい" %>
+          
+          <!--星での評価-->
             <div id="value_stars">
               <label>評価</label>
             </div>
@@ -20,7 +24,10 @@
           <p>レビュー</p>
           <%= f.text_area :comment, rows:'8',placeholder: "ここに記入してください" %>
           <div class="px-5 px-sm-0">
-            <%= f.submit 'レビューを更新する',class: "btn btn-success" %>
+            <%= f.submit 'レビューを更新する',class: "btn btn-success" , data: { confirm: "空欄はございませんか?"}%>
           </div>
       <% end %>
         <%= link_to '戻る',review_path,class: "text-danger" %>
+    </div>
+  </div>
+</div>

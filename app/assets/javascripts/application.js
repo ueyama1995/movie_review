@@ -20,3 +20,15 @@
 //= require turbolinks
 //= require_tree .
 
+/*global $*/
+$(document).on('turbolinks:load',function(){
+  $('.review-value').raty({
+    readOnly: true,
+    score: function() {
+    },
+    path: '/assets/',
+    number: 5
+  });
+
+  console.log("application.js")
+})
