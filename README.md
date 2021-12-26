@@ -32,4 +32,4 @@ https://docs.google.com/spreadsheets/d/1Gx5izZnQpYSdPJadbrXcEe2rM9KH1onXlkGYTk89
 - IDE：Cloud9
 
 ## 使用素材
-いらすとや(https://www.irasutoya.com/)
+

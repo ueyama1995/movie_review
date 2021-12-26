@@ -2,7 +2,7 @@
   <div class="row">
     <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
       <%= form_with model:@review, local:true do |f| %>
-          <h1>レビュー変更</h1>
+          <h1><i class="far fa-file-pdf">レビュー変更</i></h1>
           <p>タイトル</p>
           <%= f.text_field :title, autofocus: true %>
           <p>ジャンル</p>
@@ -27,7 +27,7 @@
             <%= f.submit 'レビューを更新する',class: "btn btn-success" , data: { confirm: "空欄はございませんか?"}%>
           </div>
       <% end %>
-        <%= link_to '戻る',review_path,class: "text-danger" %>
+      <%= link_to '戻る',review_path,class: "text-danger" %>
     </div>
   </div>
 </div>

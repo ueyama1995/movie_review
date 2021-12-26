@@ -1,12 +1,12 @@
   <% if review.liked_by?(current_user) %>
     <p>
-    <%= link_to review_likes_path(review), method: :delete,class:"text-danger", remote: true do %>
+    <%= link_to review_likes_path(review), method: :delete,class:"text-danger", remote: true do %><!--remote: true do で非同期-->
       ♥<%= review.likes.count %>
     <% end %>
     </p>
     <% else %>
     <p>
-    <%= link_to review_likes_path(review), method: :post, remote: true do %>
+    <%= link_to review_likes_path(review), method: :post, remote: true do %><!--remote: true do で非同期-->
       ♡<%= review.likes.count %>
     <% end %>
     </p>
