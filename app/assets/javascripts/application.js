@@ -23,6 +23,9 @@
 /*global $*/
 $(document).on('turbolinks:load',function(){
   $('.review-value').raty({
+    starOff: (typeof starOffImage)?starOffImage.getAttribute('src').replace('/assets/', ''):'star-off.png',
+    starOn: (typeof starOnImage)?starOnImage.getAttribute('src').replace('/assets/', ''):'star-on.png',
+    starHalf: (typeof starHalfImage)?starHalfImage.getAttribute('src').replace('/assets/', ''):'star-half.png',
     readOnly: true,
     score: function() {
     },
