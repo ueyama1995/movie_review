@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
+    review.score = Language.get_data(review_params[:comment])
     review.user = current_user
     review.save!
     redirect_to reviews_path
@@ -39,7 +40,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :movie_id, :value, :comment,:review_id,:category,:title)
+    params.require(:review).permit(:user_id,:value, :comment,:review_id,:category,:title,:score)
   end
 
 end

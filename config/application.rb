@@ -18,6 +18,7 @@ module Portfolio
     config.i18n.enforce_available_locales = true
     # config.i18n.default_locale = :en
     config.i18n.default_locale = :ja
+    config.paths.add 'lib', eager_load: true # 追加
 
 
 
