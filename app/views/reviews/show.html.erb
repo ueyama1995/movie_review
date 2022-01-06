@@ -69,7 +69,14 @@
                 <td>レビュー</td>
                 <td class="info border border-dark table-active">
                   <%= @review.comment %><br/>
-                <p class="sentiment-score">本文の感情分析スコア[<%= @review.score %>]</p>
+                 点数(-1.0〜1.0):
+                  <% if @review.score > -1.0 && @review.score < 0 %>
+                    <span class="sentiment-score"><%= @review.score %>点</span>
+                  <% elsif @review.score > 0  && @review.score < 0.6 %>
+                    <span class="normal-score"><%= @review.score %>点</span>
+                  <% else @review.score > 0.5 && @review.score ==1.0 %>
+                   <span class="high-score"><%= @review.score %>点</span>
+                  <% end %>
                 </td>
               </tr>
             </div>
