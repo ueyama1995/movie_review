@@ -70,7 +70,7 @@
                 <td class="info border border-dark table-active">
                   <%= @review.comment %><br/>
                  点数(-1.0〜1.0):
-                  <% if @review.score > -1.0 && @review.score < 0 %>
+                  <% if @review.score > -1.0 && @review.score <= 0 %>
                     <span class="sentiment-score"><i class="far fa-times-circle"></i></i><%= @review.score %>点</span>
                   <% elsif @review.score > 0  && @review.score < 0.6 %>
                     <span class="normal-score"><i class="far fa-circle"></i><%= @review.score %>点</span>
