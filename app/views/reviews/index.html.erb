@@ -13,7 +13,7 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>投稿日時</td>
-                  <td class="info border border-dark table-active">
+                  <td class="info border border-dark table-info">
                     <%= l review.created_at %><br/><!--年月日を記載-->
                   </td>
                 </tr>
@@ -24,7 +24,7 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>ニックネーム</td>
-                  <td class="info border border-dark table-active">
+                  <td class="info border border-dark table-info">
                     <%= review.user.nickname %><br/>
                   </td>
                 </tr>
@@ -35,7 +35,7 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>タイトル</td>
-                  <td class="info border border-dark table-active">
+                  <td class="info border border-dark table-info">
                     <%= review.title %>
                   </td>
                 </tr>
@@ -46,7 +46,7 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>ジャンル</td>
-                  <td class="info border border-dark table-active">
+                  <td class="info border border-dark table-info">
                     <% if review.category == 0 %>
                       洋画
                     <% elsif review.category == 1 %>
@@ -70,8 +70,8 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>レビュー</td>
-                  <td class="info border border-dark table-active">
-                    <%= review.comment %><br/>
+                  <td class="info border border-dark table-info">
+                  
                   点数(-1.0〜1.0):
                   <% if review.score > -1.0 && review.score < 0 %>
                     <span class="sentiment-score"><i class="far fa-times-circle"></i><%= review.score %>点</span>
@@ -89,7 +89,7 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>いいね</td>
-                    <td class="info border border-dark table-active" id = "like_buttons_<%= review.id %>">
+                    <td class="info border border-dark table-info" id = "like_buttons_<%= review.id %>">
                       <%= render 'reviews/like', review: review %>
                     </td>
                 </tr>
