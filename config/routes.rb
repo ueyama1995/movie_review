@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
    
   #レビューのルーティング
+  get 'reviews/about' => 'reviews#about'
   resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
    resource :likes, only: [:create, :destroy]
   end
