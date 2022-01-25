@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
-    @reviews = Review.all.order(created_at: :desc)
     @reviews = Review.page(params[:page]).reverse_order
   end
 
@@ -24,20 +22,25 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
    @review = Review.find(params[:id])
   end
 
   def edit
    @review = Review.find(params[:id])
+   @review.user = current_user
   end
 
   def update
     @review = Review.find(params[:id])
     @review.score = Language.get_data(review_params[:comment])
-    @review.update(review_params)
-    redirect_to review_path(@review.id)
+      if @review.update(review_params)
+        redirect_to review_path(@review.id)
+        flash[:notice] = "投稿情報を更新しました。"
+      else
+        render :edit
+      end
   end
 
   def destroy

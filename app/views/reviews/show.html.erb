@@ -1,3 +1,8 @@
+  <% if flash[:notice] %>
+  <p id="notice">
+  <%= flash[:notice] %>
+  </p>
+  <% end %>
   <%= form_with model:@review, local:true do |f| %>
     <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
     <% if @review.user == current_user %>

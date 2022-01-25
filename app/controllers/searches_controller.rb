@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
      @range = params[:range]
      search = params[:search]
      @word = params[:word]
-    if @range == '1'
+    if @range == 'title'
     @review = Review.search(search,@word)
     else
       redirect_back(fallback_location: root_path)
