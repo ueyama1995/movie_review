@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
-    @reviews = Review.all.order(created_at: :desc)
     @reviews = Review.page(params[:page]).reverse_order
   end
 
