@@ -8,11 +8,19 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(review_params)
-    review.score = Language.get_data(review_params[:comment])
-    review.user = current_user
-    review.save!
-    redirect_to reviews_path
+    @review = Review.new(review_params)
+    if review_params[:comment].blank?
+      @review.score = 0
+    else
+      @review.score = Language.get_data(review_params[:comment])
+    end
+    @review.user = current_user
+    if @review.save
+      redirect_to review_path(@review.id)
+      flash[:notice] = "レビューを新規投稿しました。"
+    else
+      render :new
+    end
   end
 
   def show
@@ -21,13 +29,18 @@ class ReviewsController < ApplicationController
 
   def edit
    @review = Review.find(params[:id])
+   @review.user = current_user
   end
 
   def update
     @review = Review.find(params[:id])
     @review.score = Language.get_data(review_params[:comment])
-    @review.update(review_params)
-    redirect_to review_path(@review.id)
+      if @review.update(review_params)
+        redirect_to review_path(@review.id)
+        flash[:notice] = "投稿情報を更新しました。"
+      else
+        render :edit
+      end
   end
 
   def destroy
