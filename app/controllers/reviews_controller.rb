@@ -10,13 +10,21 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(review_params)
-    review.score = Language.get_data(review_params[:comment])
-    review.user = current_user
-    review.save!
-    redirect_to reviews_path
+    @review = Review.new(review_params)
+    if review_params[:comment].blank?
+      @review.score = 0
+    else
+      @review.score = Language.get_data(review_params[:comment])
+    end
+    @review.user = current_user
+    if @review.save
+      redirect_to reviews_path
+      flash[:notice] = "投稿しました。"
+    else
+      render :new
+    end
   end
-
+  
   def show
    @review = Review.find(params[:id])
   end
