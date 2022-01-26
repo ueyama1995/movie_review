@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
   resources :users, only: [:update, :edit ]
   get 'users/my_page' => 'users#show'
-  get 'users' => 'users#check'
+  get 'users/check' => 'users#check'
+  get 'users' => redirect("users/sign_in")
 
 
   root to:'homes#top'

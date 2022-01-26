@@ -26,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
     def after_sign_in_path_for(resource)
-      users_my_page_path
+      reviews_path
     end
 
 
