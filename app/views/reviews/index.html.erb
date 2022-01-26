@@ -3,12 +3,12 @@
   <%= flash[:notice] %>
   </p>
   <% end %>
- <%= link_to "投稿画面はこのような画面になります。", reviews_about_path %>
   <div class='container'>
    <div class='row'>
     <div class='mx-auto col-5 py-3'>
      <div class="row offset-1 mb-4 ">
       <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
+      <p><%= link_to "投稿画面", reviews_about_path,class: "btn btn-success" %></p>
       <tp><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></tp>
       <%= render 'reviews/search', review: @review %>
       <%= paginate @reviews %>

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  
   def index
     @reviews = Review.page(params[:page]).reverse_order
   end
@@ -29,7 +30,9 @@ class ReviewsController < ApplicationController
 
   def edit
    @review = Review.find(params[:id])
-   @review.user = current_user
+   unless @review.user = current_user
+      redirect_to  new_review_path
+   end
   end
 
   def update
