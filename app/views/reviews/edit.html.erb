@@ -6,7 +6,7 @@
           <p>タイトル</p>
           <%= f.text_field :title, autofocus: true %>
           <p>ジャンル</p>
-          <%= f.select :category, [["洋画", 0], ["邦画", 1]], include_blank: "選択して下さい" %>
+          <%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %>
 
           <!--星での評価-->
             <div id="value_stars">

@@ -74,6 +74,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'dotenv-rails'
 gem 'rubocop'
 gem 'rails-i18n'
+gem "enum_help"
 group :production do
   gem 'mysql2'
 end

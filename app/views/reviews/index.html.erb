@@ -53,11 +53,7 @@
                 <tr class="col-xs-5 border border-dark">
                   <td>ジャンル</td>
                   <td class="info border border-dark table-info">
-                    <% if review.category == 0 %>
-                      洋画
-                    <% elsif review.category == 1 %>
-                      邦画
-                    <% end %>
+                    <%= review.category %>
                   </td>
                 </tr>
               </div>

@@ -23,11 +23,7 @@
          <%= link_to review.title, review_path(review.id) %><!--タイトル-->
         </td>
         <td>
-          <% if review.category == 0 %><!--洋画or邦画-->
-            洋画
-          <% elsif review.category == 1 %>
-            邦画
-          <% end %>
+          <%= review.category %>
         </td>
          <td>
          <%= review.user.nickname %><!--ニックネーム-->
