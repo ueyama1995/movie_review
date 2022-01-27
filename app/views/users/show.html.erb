@@ -51,7 +51,6 @@
               <tr class="col-xs-5 border border-dark">
                 <td class="info border border-dark table-active">レビュー数:
                   <%= @user.review_ids.count %>
-                  
                 </td>
               </tr>
             </div>
@@ -70,7 +69,7 @@
       </table>
           <td><%= link_to '投稿する',new_review_path, data: {"turbolinks" => false},class: "btn btn-success"%></td>
           <td><%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false},class: "btn btn-primary" %></td>
-          <td><%= link_to "退会する" ,users_path,class: "btn btn-danger" %></ul>
+          <td><%= link_to "退会する" ,users_check_path,class: "btn btn-danger" %></ul>
       <% end %>
     </div>
   </div>

@@ -3,10 +3,12 @@
     <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
       <%= form_with model:@review, local:true do |f| %>
           <h1><i class="far fa-file-pdf">レビュー変更</i></h1>
-          <p>タイトル</p>
-          <%= f.text_field :title, autofocus: true %>
-          <p>ジャンル</p>
-          <%= f.select :category, [["洋画", 0], ["邦画", 1]], include_blank: "選択して下さい" %>
+          タイトル
+          <p><%= f.text_field :title, autofocus: true %></p>
+          種類
+          <p><%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %></p>
+          ジャンル
+          <p><%= f.select :genre,Review.genres.keys, include_blank: "選択して下さい" %></p>
 
           <!--星での評価-->
             <div id="value_stars">
@@ -20,10 +22,12 @@
                 scoreName: 'review[value]', //登録するモデル名とカラム名
                 score: "<%= @review.value %>"
               });
-            </script>
+            </script><br>
 
           <p>レビュー</p>
           <%= f.text_area :comment, rows:'8',placeholder: "ここに記入してください" %>
+           <p>ネタバレの有無
+          <%= f.select :spoiler,Review.spoilers.keys, include_blank: "選択して下さい" %></p>
           <div class="px-5 px-sm-0">
             <%= f.submit 'レビューを更新する',class: "btn btn-success" , data: { confirm: "空欄はございませんか?"}%>
           </div>

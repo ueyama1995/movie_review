@@ -1,7 +1,7 @@
   <% if flash[:notice] %>
-  <p id="notice">
-  <%= flash[:notice] %>
-  </p>
+    <p id="notice">
+    <%= flash[:notice] %>
+    </p>
   <% end %>
   <%= form_with model:@review, local:true do |f| %>
     <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
@@ -47,13 +47,20 @@
           <div class="form-grop row">
             <div class="col-form-label col-sm-3">
               <tr class="col-xs-5 border border-dark">
+                <td>種類</td>
+                <td class="info border border-dark table-info">
+                  <%= @review.category %>
+                </td>
+              </tr>
+            </div>
+          </div>
+          
+          <div class="form-grop row">
+            <div class="col-form-label col-sm-3">
+              <tr class="col-xs-5 border border-dark">
                 <td>ジャンル</td>
                 <td class="info border border-dark table-info">
-                  <% if @review.category == 0 %>
-                    洋画
-                  <% else @review.category == 1 %>
-                    邦画
-                  <% end %>
+                  <%= @review.genre %>
                 </td>
               </tr>
             </div>

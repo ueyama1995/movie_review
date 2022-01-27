@@ -1,12 +1,16 @@
-<%= link_to "戻る",reviews_path %>
-<table class="table table-bordered table-condensed">
+<div class='container'>
+  <div class='row'>
+    <div class='mx-auto col-5 py-3'>
+      <div class="row offset-1 mb-4 ">
+        <table class="table table-bordered table-condensed">
+          <h1><i class="far fa-file-pdf">見本画面</i></h1>
           <tbody>
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>投稿日時</td>
                   <td class="info border border-dark table-info">
-                   <br/><!--年月日を記載-->
+                    ここに投稿した日付が入力されます。<br/><!--年月日を記載-->
                   </td>
                 </tr>
               </div>
@@ -17,7 +21,7 @@
                 <tr class="col-xs-5 border border-dark">
                   <td>ニックネーム</td>
                   <td class="info border border-dark table-info">
-                    <br/>
+                    会員登録時に登録したニックネームが表示されます。<br/>
                   </td>
                 </tr>
               </div>
@@ -28,7 +32,7 @@
                 <tr class="col-xs-5 border border-dark">
                   <td>タイトル</td>
                   <td class="info border border-dark table-info">
-                    
+                    映画のタイトルが表示されます。
                   </td>
                 </tr>
               </div>
@@ -37,9 +41,21 @@
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
+                  <td>種類</td>
+                  <td class="info border border-dark table-info">
+                    選択した映画の種類が表示されます(洋画か邦画)。
+                  </td>
+                </tr>
+              </div>
+            </div>
+
+
+            <div class="form-grop row">
+              <div class="col-form-label col-sm-3">
+                <tr class="col-xs-5 border border-dark">
                   <td>ジャンル</td>
                   <td class="info border border-dark table-info">
-                    
+                    選択した映画のジャンルが表示されます。
                   </td>
                 </tr>
               </div>
@@ -49,7 +65,9 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>評価</td><!--星での評価 javascriptで-->
-                
+                  <td class="info border border-dark table-info">
+                    星で5段階評価したものが表示されます。
+                  </td>
                 </tr>
               </div>
             </div>
@@ -59,6 +77,8 @@
                 <tr class="col-xs-5 border border-dark">
                   <td>レビュー</td>
                   <td class="info border border-dark table-info">
+                    レビューの内容が表示されます。<br>
+                    その下にレビュー文に対して感情を分析した点数が表示されます。
                   </td>
                 </tr>
               </div>
@@ -68,13 +88,18 @@
               <div class="col-form-label col-sm-3">
                 <tr class="col-xs-5 border border-dark">
                   <td>いいね</td>
-                    
-                      
+                    <td class="info border border-dark table-info">
+                      レビューのいいねが表示されます。<br>
+                      クリックをすることで<br>
+                      いいねをつけることができます。
                     </td>
                 </tr>
               </div>
             </div>
-                    
-            
           </tbody>
         </table>
+        <%= link_to '戻る',reviews_path,class: "text-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,10 +7,12 @@
             <div class="col-form-label col-sm-3">
               <tr>
                 <h1><i class="far fa-file-pdf">レビュー投稿</i></h1>
-                  <p>タイトル</p>
-                  <%= f.text_field :title,rows:'3', autofocus: true %>
-                  <p>ジャンル</p>
-                  <%= f.select :category, [["洋画", 0], ["邦画", 1]], include_blank: "選択して下さい" %>
+                  タイトル
+                  <p><%= f.text_field :title,rows:'3', autofocus: true %></p>
+                  種類
+                  <p><%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %></p>
+                  ジャンル
+                  <p><%= f.select :genre,Review.genres.keys, include_blank: "選択して下さい" %></p>
                   <div id="value_stars">
                     <label>評価</label>
                   </div>
@@ -25,6 +27,8 @@
                   </script>
                   <p>レビュー</p>
                   <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>
+                  <p>ネタバレの有無
+                  <%= f.select :spoiler,Review.spoilers.keys, include_blank: "選択して下さい" %></p>
                   <div class="px-5 px-sm-0">
                     <%= f.submit '投稿する',class: "btn btn-success", data: { confirm: "空欄はございませんか?"} %>
                   </div>
