@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 2022_01_05_104912) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "movie_id"
     t.integer "review_id"
     t.text "comment", null: false
     t.float "value", null: false
     t.string "title", null: false
     t.integer "category", null: false
+    t.integer "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "score", precision: 5, scale: 3

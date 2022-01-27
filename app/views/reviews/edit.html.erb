@@ -4,9 +4,11 @@
       <%= form_with model:@review, local:true do |f| %>
           <h1><i class="far fa-file-pdf">レビュー変更</i></h1>
           <p>タイトル</p>
-          <%= f.text_field :title, autofocus: true %>
+          <p><%= f.text_field :title, autofocus: true %></p>
+          <p>種類</p>
+          <p><%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %></p>
           <p>ジャンル</p>
-          <%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %>
+          <p><%= f.select :genre,Review.genres.keys, include_blank: "選択して下さい" %></p>
 
           <!--星での評価-->
             <div id="value_stars">
@@ -20,7 +22,7 @@
                 scoreName: 'review[value]', //登録するモデル名とカラム名
                 score: "<%= @review.value %>"
               });
-            </script>
+            </script><br>
 
           <p>レビュー</p>
           <%= f.text_area :comment, rows:'8',placeholder: "ここに記入してください" %>

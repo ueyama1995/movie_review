@@ -1,109 +1,120 @@
   <% if flash[:notice] %>
-  <p id="notice">
-  <%= flash[:notice] %>
-  </p>
+    <p id="notice">
+    <%= flash[:notice] %>
+    </p>
   <% end %>
   <div class='container'>
-   <div class='row'>
-    <div class='mx-auto col-5 py-3'>
-     <div class="row offset-1 mb-4 ">
-      <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
-      <p><%= link_to "投稿サンプル画面", reviews_about_path,class: "btn btn-success" %></p>
-      <tp><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></tp>
-      <%= render 'reviews/search', review: @review %>
-      <%= paginate @reviews %>
-      <% @reviews.each do |review| %>
-        <table class="table table-bordered table-condensed">
-          <tbody>
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>投稿日時</td>
-                  <td class="info border border-dark table-info">
-                    <%= l review.created_at %><br/><!--年月日を記載-->
-                  </td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>ニックネーム</td>
-                  <td class="info border border-dark table-info">
-                    <%= review.user.nickname %><br/>
-                  </td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>タイトル</td>
-                  <td class="info border border-dark table-info">
-                    <%= review.title %>
-                  </td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>ジャンル</td>
-                  <td class="info border border-dark table-info">
-                    <%= review.category %>
-                  </td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>評価</td><!--星での評価 javascriptで-->
-                  <td class="review-value" data-score="<%= review.value %>"></td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>レビュー</td>
-                  <td class="info border border-dark table-info">
-                  
-                  点数(-1.0〜1.0):
-                  <% if review.score > -1.0 && review.score < 0 %>
-                    <span class="sentiment-score"><i class="far fa-times-circle"></i><%= review.score %>点</span>
-                  <% elsif review.score > 0  && review.score < 0.6 %>
-                    <span class="normal-score"><i class="far fa-circle"></i><%= review.score %>点</span>
-                  <% else review.score > 0.5 && review.score <=1.0 %>
-                   <span class="high-score"><i class="far fa-star"></i><%= review.score %>点</span>
-                  <% end %>
-                  </td>
-                </tr>
-              </div>
-            </div>
-
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td>いいね</td>
-                    <td class="info border border-dark table-info" id = "like_buttons_<%= review.id %>">
-                      <%= render 'reviews/like', review: review %>
-                    </td>
-                </tr>
-              </div>
-            </div>
-                    
-            <p><%=link_to "詳細を見る",review_path(review.id),class: "btn btn-success" %>
-            </p>
-          </tbody>
-        </table>
-      <% end %>
-     </div>
+    <div class='row'>
+      <div class='mx-auto col-5 py-3'>
+        <div class="row offset-1 mb-4 ">
+          <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
+          <p><%= link_to "投稿サンプル画面", reviews_about_path,class: "btn btn-success" %></p>
+          <p><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></p>
+          <%= render 'reviews/search', review: @review %>
+          <%= paginate @reviews %>
+          <% @reviews.each do |review| %>
+            <table class="table table-bordered table-condensed">
+              <tbody>
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>投稿日時</td>
+                      <td class="info border border-dark table-info">
+                        <%= l review.created_at %><br/><!--年月日を記載-->
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>ニックネーム</td>
+                      <td class="info border border-dark table-info">
+                        <%= review.user.nickname %><br/>
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>タイトル</td>
+                      <td class="info border border-dark table-info">
+                        <%= review.title %>
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>種類</td>
+                      <td class="info border border-dark table-info">
+                        <%= review.category %>
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+                
+                 <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>ジャンル</td>
+                      <td class="info border border-dark table-info">
+                        <%= review.genre %>
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>評価</td><!--星での評価 javascriptで-->
+                      <td class="review-value" data-score="<%= review.value %>"></td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>レビュー</td>
+                      <td class="info border border-dark table-info">
+                      
+                      点数(-1.0〜1.0):
+                      <% if review.score > -1.0 && review.score < 0 %>
+                        <span class="sentiment-score"><i class="far fa-times-circle"></i><%= review.score %>点</span>
+                      <% elsif review.score > 0  && review.score < 0.6 %>
+                        <span class="normal-score"><i class="far fa-circle"></i><%= review.score %>点</span>
+                      <% else review.score > 0.5 && review.score <=1.0 %>
+                       <span class="high-score"><i class="far fa-star"></i><%= review.score %>点</span>
+                      <% end %>
+                      </td>
+                    </tr>
+                  </div>
+                </div>
+    
+                <div class="form-grop row">
+                  <div class="col-form-label col-sm-3">
+                    <tr class="col-xs-5 border border-dark">
+                      <td>いいね</td>
+                        <td class="info border border-dark table-info" id = "like_buttons_<%= review.id %>">
+                          <%= render 'reviews/like', review: review %>
+                        </td>
+                    </tr>
+                  </div>
+                </div>
+                        
+                <p><%=link_to "詳細を見る",review_path(review.id),class: "btn btn-success" %>
+                </p>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
     </div>
-   </div>
   </div>

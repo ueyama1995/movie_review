@@ -4,9 +4,9 @@
       <tr>
        <th></th>
        <th>タイトル</th>
+       <th>種類</th>
        <th>ジャンル</th>
        <th>投稿者</th>
-       <th>レビュー</th>
        <th>点数(-1.0~1.0)</th>
        <th>評価</th>
        <th colspan="3"></th>
@@ -23,13 +23,13 @@
          <%= link_to review.title, review_path(review.id) %><!--タイトル-->
         </td>
         <td>
-          <%= review.category %>
+          <%= review.category %><!--種類-->
+        </td>
+        <td>
+         <%= review.genre %><!--ジャンル-->
         </td>
          <td>
          <%= review.user.nickname %><!--ニックネーム-->
-        </td>
-        <td>
-         <%= review.comment %><!--レビュー-->
         </td>
         <td>
           <% if review.score > -1.0 && review.score < 0 %>
