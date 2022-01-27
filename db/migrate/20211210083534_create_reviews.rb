@@ -8,7 +8,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :title,null: false
       t.integer :category,null: false
       t.integer :genre,null: false
-
+      t.integer :spoiler,null: false
       t.timestamps
     end
   end

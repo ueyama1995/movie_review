@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_01_05_104912) do
     t.string "title", null: false
     t.integer "category", null: false
     t.integer "genre", null: false
+    t.integer "spoiler", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "score", precision: 5, scale: 3

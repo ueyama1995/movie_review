@@ -8,9 +8,11 @@ class Review < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
   validates :genre, presence: true
+  validates :spoiler, presence: true
 
   enum category: { 洋画: 0, 邦画: 1 }
   enum genre: { アクション: 0, アニメ: 1, SF: 2, ドラマ:3, ラブコメ:4, ホラー:5, ミュージカル: 6,コメディ:7, ドキュメンタリー:8 }
+  enum spoiler: { 有り:0, 無し:1 }
 
 
   def liked_by?(user)
