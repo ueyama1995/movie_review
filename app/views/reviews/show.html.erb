@@ -4,11 +4,13 @@
     </p>
   <% end %>
   <%= form_with model:@review, local:true do |f| %>
-    <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
-    <% if @review.user == current_user %>
-      <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false},class: "btn btn-primary" %></p>
-      <p><%= link_to "レビューを消去する",review_path(@review),method: :delete, data: { confirm: "本当に消去されますか?"},class: "btn btn-danger"  %></p>
-    <% end %>
+    <span class = "review_show">
+      <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
+      <% if @review.user == current_user %>
+        <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false},class: "btn btn-primary" %></p>
+        <p><%= link_to "レビューを消去する",review_path(@review),method: :delete, data: { confirm: "本当に消去されますか?"},class: "btn btn-danger"  %></p>
+      <% end %>
+    </span>
       <table class="table table-bordered table-condensed">
         <tbody>
           <div class="form-grop row">
@@ -81,7 +83,17 @@
                 <td>レビュー</td>
                 <td class="info border border-dark table-info">
                   <%= @review.comment %><br/>
-                 点数(-1.0〜1.0):
+                </td>
+              </tr>
+            </div>
+          </div>
+
+
+          <div class="form-grop row">
+            <div class="col-form-label col-sm-3">
+              <tr class="col-xs-5 border border-dark">
+                <td>点数(-1.0〜1.0):</td>
+                <td class="info border border-dark table-info">
                   <% if @review.score > -1.0 && @review.score <= 0 %>
                     <span class="sentiment-score"><i class="far fa-times-circle"></i></i><%= @review.score %>点</span>
                   <% elsif @review.score > 0  && @review.score < 0.6 %>
@@ -93,6 +105,7 @@
               </tr>
             </div>
           </div>
+
 
           <div class="form-grop row">
             <div class="col-form-label col-sm-3">

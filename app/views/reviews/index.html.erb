@@ -9,7 +9,7 @@
       <div class='mx-auto col-5 py-3'>
         <div class="row offset-1 mb-4 ">
           <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
-          <p><%= link_to "見本はこちら", reviews_about_path,class: "btn btn-success" %></p>
+          <p><%= link_to "見本はこちら", reviews_about_path,class: "btn btn-primary" %></p>
           <p><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></p>
           <%= render 'reviews/search', review: @review %>
           <%= paginate @reviews %>
@@ -123,7 +123,7 @@
                   </div>
                 </div>
                         
-                <p><%=link_to "詳細を見る",review_path(review.id),class: "btn btn-success" %>
+                <p><%=link_to "詳細を見る",review_path(review.id),class: "btn btn-danger" %>
                 </p>
               </tbody>
             </table>
