@@ -1,33 +1,35 @@
-<div class='container'>
- <div class='row'>
-  <div class='mx-auto col-8 py-3'>
-    <div class="row offset-1 mb-4 ">
-      <table>
-        <h1><i class="fas fa-pager">会員情報編集</i></h1>
-        <%= form_with model: @user, local: true do |f| %>
-          <div class="field">
-            <%= f.label :氏 %><br/>
-            <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name", class: "form-control-sm"  %>
-          </div>
-          <div class="field">
-            <%= f.label :名 %><br/>
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", class: "form-control-sm"  %>
-          </div>
-
-          <div class="field">
-            <%= f.label :ニックネーム %><br/>
-            <%= f.text_field :nickname,autofocus: true,autocomplete: "nickname" ,class: "form-inline input-sm" %>
-          </div>
-
-          <div class="row mb-3">
-            <%= f.label :メールアドレス %><br/>
-            <%= f.text_field :email,autofocus: true,autocomplete: "email" ,class: "form-inline input-sm" %>
-          </div>
-          <td><%= f.submit "編集内容を保存", class: "btn btn-sm btn-success" %></td>
-        <% end %>
-      </table>
-          <td><%= link_to '戻る',users_my_page_path,class: "text-danger" %></td>
+<div class='user_container'> 
+  <div class='container'>
+   <div class='row'>
+    <div class='mx-auto col-8 py-3'>
+      <div class="row offset-1 mb-4 ">
+        <table>
+          <h1><i class="fas fa-pager">会員情報編集</i></h1>
+          <%= form_with model: @user, local: true do |f| %>
+            <div class="field">
+              <%= f.label :氏 %><br/>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name", class: "form-control-sm"  %>
+            </div>
+            <div class="field">
+              <%= f.label :名 %><br/>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", class: "form-control-sm"  %>
+            </div>
+  
+            <div class="field">
+              <%= f.label :ニックネーム %><br/>
+              <%= f.text_field :nickname,autofocus: true,autocomplete: "nickname" ,class: "form-inline input-sm" %>
+            </div>
+  
+            <div class="row mb-3">
+              <%= f.label :メールアドレス %><br/>
+              <%= f.text_field :email,autofocus: true,autocomplete: "email" ,class: "form-inline input-sm" %>
+            </div>
+            <td><%= f.submit "編集内容を保存", class: "btn btn-sm btn-success" %></td>
+          <% end %>
+        </table>
+            <td><%= link_to '戻る',users_my_page_path,class: "text-danger" %></td>
+      </div>
     </div>
+   </div>
   </div>
- </div>
 </div>

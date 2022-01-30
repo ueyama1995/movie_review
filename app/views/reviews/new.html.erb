@@ -1,43 +1,45 @@
-<div class="container">
-  <div class="row">
-    <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
-      <%= form_with model:@review, local:true do |f| %>
-        <table>
-          <div class="form-grop row">
-            <div class="col-form-label col-sm-3">
-              <tr>
-                <h1><i class="far fa-file-pdf">レビュー投稿</i></h1>
-                  タイトル
-                  <p><%= f.text_field :title,rows:'3', autofocus: true %></p>
-                  種類
-                  <p><%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %></p>
-                  ジャンル
-                  <p><%= f.select :genre,Review.genres.keys, include_blank: "選択して下さい" %></p>
-                  <div id="value_stars">
-                    <label>評価</label>
-                  </div>
-                  <script>
-                    $('#value_stars').raty({
-                      starOn: "<%= asset_path('star-on.png') %>",
-                      starOff: "<%= asset_path('star-off.png') %>",
-                      starHalf: "<%= asset_path('star-half.png') %>",
-                      scoreName: 'review[value]', //登録するモデル名とカラム名
-                      score: "<%= @review.value %>"
-                    });
-                  </script>
-                  <p>レビュー</p>
-                  <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>
-                  <p>ネタバレの有無
-                  <%= f.select :spoiler,Review.spoilers.keys, include_blank: "選択して下さい" %></p>
-                  <div class="px-5 px-sm-0">
-                    <%= f.submit '投稿する',class: "btn btn-success", data: { confirm: "空欄はございませんか?"} %>
-                  </div>
-              </tr>
-             </div>
-          </div>
-        </table>
-      <% end %>
-      <%= link_to '戻る',reviews_path,class: "text-danger" %>
+<div class='review_container2'>
+  <div class="container">
+    <div class="row">
+      <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
+        <%= form_with model:@review, local:true do |f| %>
+          <table>
+            <div class="form-grop row">
+              <div class="col-form-label col-sm-3">
+                <tr>
+                  <h1><i class="far fa-file-pdf">レビュー投稿</i></h1>
+                    タイトル
+                    <p><%= f.text_field :title,rows:'3', autofocus: true %></p>
+                    種類
+                    <p><%= f.select :category,Review.categories.keys, include_blank: "選択して下さい" %></p>
+                    ジャンル
+                    <p><%= f.select :genre,Review.genres.keys, include_blank: "選択して下さい" %></p>
+                    <div id="value_stars">
+                      <label>評価</label>
+                    </div>
+                    <script>
+                      $('#value_stars').raty({
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                        scoreName: 'review[value]', //登録するモデル名とカラム名
+                        score: "<%= @review.value %>"
+                      });
+                    </script>
+                    <p>レビュー</p>
+                    <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>
+                    <p>ネタバレの有無
+                    <%= f.select :spoiler,Review.spoilers.keys, include_blank: "選択して下さい" %></p>
+                    <div class="px-5 px-sm-0">
+                      <%= f.submit '投稿する',class: "btn btn-success", data: { confirm: "空欄はございませんか?"} %>
+                    </div>
+                </tr>
+               </div>
+            </div>
+          </table>
+        <% end %>
+        <%= link_to '戻る',reviews_path,class: "text-danger" %>
+      </div>
     </div>
   </div>
 </div>
