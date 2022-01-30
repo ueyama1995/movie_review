@@ -22,6 +22,7 @@
 
 /*global $*/
 $(document).on('turbolinks:load',function(){
+  $('.review-value').empty();
   $('.review-value').raty({
     starOff: (typeof starOffImage != "undefined")?starOffImage.getAttribute('src').replace('/assets/', ''):'star-off.png',
     starOn: (typeof starOnImage != "undefined")?starOnImage.getAttribute('src').replace('/assets/', ''):'star-on.png',
