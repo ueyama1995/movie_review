@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
      @word = params[:word]
     if @range == 'title'
     @review = Review.search(search,@word)
-    @review = Review.page(params[:page]).reverse_order.per(10)
+    @review = @review.page(params[:page]).reverse_order.per(10)
     else
       redirect_back(fallback_location: root_path)
     end

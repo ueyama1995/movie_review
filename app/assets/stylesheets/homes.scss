@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*トップ画面の文字設定*/
 .homes_top{
   text-align:center;
   line-height:80px;
 }
 
+/*トップ画面・about画面の背景色*/
 .homes_back{
   width: 100%;
   height: 900px;
@@ -23,6 +25,7 @@
   }
 }
 
+/*about画面の設定*/
 .homes_about{
   text-align:center;
   line-height:60px;

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*感情分析の点数*/
 .sentiment-score{
   color: blue;
 }
@@ -12,20 +13,18 @@
   color: red;
 }
 
+/*show画面のタイトル・編集・消去箇所*/
 .review_show{
   text-align:center;
 }
 
-#notice {
-  text-align:center;
-  font-weight:bold;
-  color: green;
-}
 
+/*ネタバレ*/
 .spoiler_color{
   color: red;
 }
 
+/*review#indexの背景色*/
 .review_container{
   width: 100%;
   height: 100%;
@@ -50,9 +49,10 @@
 	}
 }
 
-.review_container{
+/*review#editの背景*/
+.review_container3{
   width: 100%;
-  height: 100%;
+  height: 800px;
   background-color: #FFFFEE;
   animation: review-container-change-color-anim 50s linear infinite;
 }
@@ -74,6 +74,32 @@
 	}
 }
 
+/*review#show*/
+.review_container4{
+  width: 100%;
+  height: 800px;
+  background-color: #FFFFEE;
+  animation: review-container-change-color-anim 50s linear infinite;
+}
+@keyframes review-container-change-color-anim {
+	0%,100%{
+		background-color: #FFFFEE;
+	}
+	20%{
+		background-color: #EEFFFF;
+	}
+	40%{
+		background-color: #DDFFFF;
+ }
+	60%{
+		background-color: #FFFFDD	;
+	}
+	80%{
+		background-color: #EEEEEE;
+	}
+}
+
+/*review#newの背景*/
 .review_container2{
   width: 100%;
   height: 750px;
@@ -98,34 +124,13 @@
 	}
 }
 
-.review_container3{
-  width: 100%;
-  height: 750px;
-  background-color: #FFFFEE;
-  animation: review-container-change-color-anim 50s linear infinite;
-}
-@keyframes review-container-change-color-anim {
-	0%,100%{
-		background-color: #FFFFEE;
-	}
-	20%{
-		background-color: #EEFFFF;
-	}
-	40%{
-		background-color: #DDFFFF;
- }
-	60%{
-		background-color: #FFFFDD	;
-	}
-	80%{
-		background-color: #EEEEEE;
-	}
+/*一覧のkaminariのCSS*/
+.pagenation{
+	display: flex;
+	justify-content:center;
+	margin-bottom: -100px;
 }
 
-.kaminari{
-	margin: 0;
-  position: absolute;
-  top: 45%;
-  left: 45%;
-  margin-right: -50%;
+.search_area{
+	margin-bottom: 100px;
 }

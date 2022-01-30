@@ -1,4 +1,4 @@
-  <div class='review_container'>
+  <div class='review_container4'>
     <% if flash[:notice] %>
       <p id="notice">
       <%= flash[:notice] %>
@@ -118,10 +118,10 @@
                 </tr>
               </div>
             </div>
+          <%= link_to '戻る',reviews_path,class: "text-danger" %>
           </tbody>
         </table>
     <% end %>
-  <%= link_to '戻る',reviews_path,class: "text-danger" %>
   </div>
 
 

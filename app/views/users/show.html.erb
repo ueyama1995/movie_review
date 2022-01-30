@@ -9,8 +9,9 @@
           <tbody>
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">氏:
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>氏</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.last_name %><br/>
                   </td>
                 </tr>
@@ -19,8 +20,9 @@
   
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">名:
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>名</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.first_name %><br/>
                   </td>
                 </tr>
@@ -29,8 +31,9 @@
   
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">ニックネーム
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>ニックネーム</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.nickname %><br/>
                   </td>
                 </tr>
@@ -39,8 +42,9 @@
   
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">メールアドレス:
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>メールアドレス</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.email %><br/>
                   </td>
                 </tr>
@@ -49,8 +53,9 @@
   
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">レビュー数:
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>レビュー数</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.review_ids.count %>
                   </td>
                 </tr>
@@ -59,8 +64,9 @@
   
             <div class="form-grop row">
               <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark">
-                  <td class="info border border-dark table-active">いいね数:
+                <tr class="col-xs-5 border border-dark table-light">
+                  <td>いいね数</td>
+                  <td class="info border border-dark table-info">
                     <%= @user.likes.count %>
                   </td>
                 </tr>

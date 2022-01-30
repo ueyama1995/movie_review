@@ -17,12 +17,21 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+/*レビュー投稿画面のコメント欄*/
 textarea#review_comment {
     width: 50%;
 }
 
+/*星画像のデプロイ設定*/
 .review_value {
   image: image-url("star-half.png");
   image: image-url("star-off.jpg");
   image: image-url("star-on.jpg");
   }
+
+/*上の表示文(更新しましたなど)*/
+#notice {
+  text-align:center;
+  font-weight:bold;
+  color: green;
+}
