@@ -1,6 +1,7 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*検索画面の背景色*/
 .search_container{
    width: 100%;
   height: 800px;
@@ -25,10 +26,8 @@
 	}
 }
 
-.kaminari1{
-	margin: 0;
-  position: absolute;
-  top: 80%;
-  left: 45%;
-  margin-right: -50%;
+/*検索画面のkaminari設定*/
+.search_pagenation{
+	display: flex;
+	justify-content:center;
 }
