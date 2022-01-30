@@ -11,8 +11,12 @@
             <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
             <p><%= link_to "見本はこちら", reviews_about_path,class: "btn btn-primary" %></p>
             <p><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></p>
-            <%= render 'reviews/search', review: @review %>
-            <span class = "kaminari"><%= paginate @reviews %></span>
+            <div class = "search_area">
+              <%= render 'reviews/search', review: @review %>
+            </div>
+            <div class = "pagenation">
+              <%= paginate @reviews %>
+            </div>
             <% @reviews.each do |review| %>
               <table class="table table-bordered table-condensed">
                 <tbody>
