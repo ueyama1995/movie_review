@@ -13,12 +13,6 @@
   color: red;
 }
 
-/*show画面のタイトル・編集・消去箇所*/
-.review_show{
-  text-align:center;
-}
-
-
 /*ネタバレ*/
 .spoiler_color{
   color: red;
@@ -28,6 +22,31 @@
 .review_container{
   width: 100%;
   height: 100%;
+  background-color: #FFFFEE;
+  animation: review-container-change-color-anim 50s linear infinite;
+}
+@keyframes review-container-change-color-anim {
+	0%,100%{
+		background-color: #FFFFEE;
+	}
+	20%{
+		background-color: #EEFFFF;
+	}
+	40%{
+		background-color: #DDFFFF;
+ }
+	60%{
+		background-color: #FFFFDD	;
+	}
+	80%{
+		background-color: #EEEEEE;
+	}
+}
+
+/*review#new*/
+.review_container2{
+  width: 100%;
+  height: 750px;
   background-color: #FFFFEE;
   animation: review-container-change-color-anim 50s linear infinite;
 }
@@ -99,30 +118,7 @@
 	}
 }
 
-/*review#newの背景*/
-.review_container2{
-  width: 100%;
-  height: 750px;
-  background-color: #FFFFEE;
-  animation: review-container-change-color-anim 50s linear infinite;
-}
-@keyframes review-container-change-color-anim {
-	0%,100%{
-		background-color: #FFFFEE;
-	}
-	20%{
-		background-color: #EEFFFF;
-	}
-	40%{
-		background-color: #DDFFFF;
- }
-	60%{
-		background-color: #FFFFDD	;
-	}
-	80%{
-		background-color: #EEEEEE;
-	}
-}
+
 
 /*一覧のkaminariのCSS*/
 .pagenation{
