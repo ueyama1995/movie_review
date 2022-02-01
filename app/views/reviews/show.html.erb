@@ -5,6 +5,7 @@
       </p>
     <% end %>
     <%= form_with model:@review, local:true do |f| %>
+    <div class='mx-auto col-5 py-3'>
       <span class = "review_show">
         <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
         <% if @review.user == current_user %>
@@ -14,113 +15,116 @@
       </span>
         <table class="table table-bordered table-condensed">
           <tbody>
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>投稿日時</td>
-                  <td class="info border border-dark table-info">
-                    <%= l @review.created_at %><br/>
-                  </td>
-                </tr>
+            <div class = "review_show1">
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light" >
+                    <td>投稿日時</td>
+                    <td class="info border border-dark table-info">
+                      <%= l @review.created_at %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>ニックネーム</td>
-                  <td class="info border border-dark table-info">
-                    <%= @review.user.nickname %><br/>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>ニックネーム</td>
+                    <td class="info border border-dark table-info">
+                      <%= @review.user.nickname %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>タイトル</td>
-                  <td class="info border border-dark table-info">
-                    <%= @review.title %>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>タイトル</td>
+                    <td class="info border border-dark table-info">
+                      <%= @review.title %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>種類</td>
-                  <td class="info border border-dark table-info">
-                    <%= @review.category %>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>種類</td>
+                    <td class="info border border-dark table-info">
+                      <%= @review.category %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-            
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>ジャンル</td>
-                  <td class="info border border-dark table-info">
-                    <%= @review.genre %>
-                  </td>
-                </tr>
+              
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>ジャンル</td>
+                    <td class="info border border-dark table-info">
+                      <%= @review.genre %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>評価</td><!--星での評価-->
-                  <td class="review-value info border border-dark table-info" data-score="<%= @review.value %>"></td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>評価</td><!--星での評価-->
+                    <td class="review-value info border border-dark table-info" data-score="<%= @review.value %>"></td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>レビュー</td>
-                  <td class="info border border-dark table-info">
-                    <%= @review.comment %><br/>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>レビュー</td>
+                    <td class="info border border-dark table-info">
+                      <%= @review.comment %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>点数(-1.0〜1.0)</td>
-                  <td class="info border border-dark table-info">
-                    <% if @review.score > -1.0 && @review.score <= 0 %>
-                      <span class="sentiment-score"><i class="far fa-times-circle"></i></i><%= @review.score %>点</span>
-                    <% elsif @review.score > 0  && @review.score < 0.6 %>
-                      <span class="normal-score"><i class="far fa-circle"></i><%= @review.score %>点</span>
-                    <% else @review.score > 0.5 && @review.score <= 1.0 %>
-                     <span class="high-score"><i class="far fa-star"></i><%= @review.score %>点</span>
-                    <% end %>
-                  </td>
-                </tr>
+    
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>点数(-1.0〜1.0)</td>
+                    <td class="info border border-dark table-info">
+                      <% if @review.score > -1.0 && @review.score <= 0 %>
+                        <span class="sentiment-score"><i class="far fa-times-circle"></i></i><%= @review.score %>点</span>
+                      <% elsif @review.score > 0  && @review.score < 0.6 %>
+                        <span class="normal-score"><i class="far fa-circle"></i><%= @review.score %>点</span>
+                      <% else @review.score > 0.5 && @review.score <= 1.0 %>
+                       <span class="high-score"><i class="far fa-star"></i><%= @review.score %>点</span>
+                      <% end %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>いいね</td>
-                  <td class="info border border-dark table-info" id = "like_buttons_<%= @review.id %>">
-                    <%= render 'reviews/like', review: @review %><br/>
-                  </td>
-                </tr>
+    
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>いいね</td>
+                    <td class="info border border-dark table-info" id = "like_buttons_<%= @review.id %>">
+                      <%= render 'reviews/like', review: @review %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
             </div>
           <%= link_to '戻る',reviews_path,class: "text-danger" %>
           </tbody>
         </table>
+    </div>
     <% end %>
   </div>
 
