@@ -96,7 +96,7 @@
 /*review#show*/
 .review_container4{
   width: 100%;
-  height: 800px;
+  height: 900px;
   background-color: #FFFFEE;
   animation: review-container-change-color-anim 50s linear infinite;
 }
@@ -133,4 +133,10 @@
 
 .review_show1{
 	margin-bottom: -100px;
+}
+
+textarea#review_title{
+	resize: none;
+  width: 100%;
+  height: 30px;
 }
