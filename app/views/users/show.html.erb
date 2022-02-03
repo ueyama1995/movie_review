@@ -1,85 +1,90 @@
 <div class='user_container'>  
+  <% if flash[:notice] %>
+      <p id="notice">
+      <%= flash[:notice] %>
+      </p>
+  <% end %>
   <div class='container'>
-   <div class='row'>
-    <div class='mx-auto col-5 py-3'>
-      <div class="row offset-1 mb-4 ">
-        <%= form_with model: @user, local:true do |f| %>
-        <table class="table table-bordered table-condensed">
-          <h1><i class="fas fa-pager">マイページ</i></h1>
-          <tbody>
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td style = "width:30%">氏</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.last_name %><br/>
-                  </td>
-                </tr>
+    <div class='row'>
+      <div class='mx-auto col-5 py-3'>
+        <div class="row offset-1 mb-4 ">
+          <%= form_with model: @user, local:true do |f| %>
+          <table class="table table-bordered table-condensed">
+            <h1><i class="fas fa-pager">マイページ</i></h1>
+            <tbody>
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td style = "width:30%">氏</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.last_name %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>名</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.first_name %><br/>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>名</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.first_name %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>ニックネーム</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.nickname %><br/>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>ニックネーム</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.nickname %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>メールアドレス</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.email %><br/>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>メールアドレス</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.email %><br/>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>レビュー数</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.review_ids.count %>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>レビュー数</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.review_ids.count %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-  
-            <div class="form-grop row">
-              <div class="col-form-label col-sm-3">
-                <tr class="col-xs-5 border border-dark table-light">
-                  <td>いいね数</td>
-                  <td class="info border border-dark table-info">
-                    <%= @user.likes.count %>
-                  </td>
-                </tr>
+    
+              <div class="form-grop row">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>いいね数</td>
+                    <td class="info border border-dark table-info">
+                      <%= @user.likes.count %>
+                    </td>
+                  </tr>
+                </div>
               </div>
-            </div>
-          </tbody>
-        </table>
-            <td><%= link_to '投稿する',new_review_path, data: {"turbolinks" => false},class: "btn btn-success"%></td>
-            <td><%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false},class: "btn btn-primary" %></td>
-            <td><%= link_to "退会する" ,users_check_path,class: "btn btn-danger" %></ul>
-        <% end %>
+            </tbody>
+          </table>
+            <d><%= link_to '投稿する',new_review_path, data: {"turbolinks" => false},class: "btn btn-success"%></d>
+            <d><%= link_to "編集する" ,edit_user_path(@user), data: {"turbolinks" => false},class: "btn btn-primary" %></d>
+            <d><%= link_to "退会する" ,users_check_path,class: "btn btn-danger" %></d>
+          <% end %>
+        </div>
       </div>
     </div>
-   </div>
   </div>
 </div>

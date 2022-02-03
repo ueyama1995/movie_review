@@ -9,9 +9,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    #binding.pry
     if @user.update(user_params)
      redirect_to users_my_page_path
+     flash[:notice] = "会員情報を更新しました。"
     end
   end
 
