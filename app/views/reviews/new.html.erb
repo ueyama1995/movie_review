@@ -30,13 +30,11 @@
                     <%= f.text_area :comment, rows:'5',placeholder: "ここに記入してください" %>
                     <p>ネタバレの有無
                     <%= f.select :spoiler,Review.spoilers.keys, include_blank: "選択して下さい" %></p>
-                    <div class="px-5 px-sm-0">
-                      <%= f.submit '投稿する',class: "btn btn-success", data: { confirm: "空欄はございませんか?"} %>
-                    </div>
                 </tr>
                </div>
             </div>
           </table>
+          <p><%= f.submit '投稿する',class: "btn btn-success", data: { confirm: "空欄はございませんか?"} %></p>
         <% end %>
         <%= link_to '戻る',reviews_path,class: "text-danger" %>
       </div>
