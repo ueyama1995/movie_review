@@ -5,21 +5,20 @@
       </p>
     <% end %>
     <%= form_with model:@review, local:true do |f| %>
-    <div class='mx-auto col-5 py-3'>
-      
+      <div class='mx-auto col-5 py-3'>
         <h1><i class="far fa-file-pdf">レビュー詳細</i></h1>
         <% if @review.user == current_user %>
           <p><%= link_to "レビューを変更する",edit_review_path, data: {"turbolinks" => false},class: "btn btn-primary" %></p>
           <p><%= link_to "レビューを消去する",review_path(@review),method: :delete, data: { confirm: "本当に消去されますか?"},class: "btn btn-danger"  %></p>
         <% end %>
-      </span>
         <table class="table table-bordered table-condensed">
           <tbody>
             <div class = "review_show1">
+              
               <div class="form-grop row">
                 <div class="col-form-label col-sm-3">
                   <tr class="col-xs-5 border border-dark table-light" >
-                    <td class = "width:25%">投稿日時</td>
+                    <td style = "width:25%">投稿日時</td>
                     <td class="info border border-dark table-info">
                       <%= l @review.created_at %><br/>
                     </td>
@@ -120,11 +119,12 @@
                   </tr>
                 </div>
               </div>
+              
             </div>
           </tbody>
         </table>
         <%= link_to '戻る',reviews_path,class: "text-danger" %>
-    </div>
+      </div>
     <% end %>
   </div>
 

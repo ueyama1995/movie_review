@@ -4,6 +4,7 @@
       <%= flash[:notice] %>
       </p>
     <% end %>
+    
     <div class='container'>
       <div class='row'>
         <div class='mx-auto col-5 py-3'>
@@ -20,10 +21,11 @@
             <% @reviews.each do |review| %>
               <table class="table table-bordered table-condensed">
                 <tbody>
+                  
                   <div class="form-grop row">
                     <div class="col-form-label col-sm-3">
                       <tr class="col-xs-5 border border-dark table-light">
-                        <td>投稿日時</td>
+                        <td style = "width:30%">投稿日時</td>
                         <td class="info border border-dark table-info">
                           <%= l review.created_at %><br/><!--年月日を記載-->
                         </td>
