@@ -1,19 +1,19 @@
 <header class="site-header">
   <div class="wrapper site-header__wrapper">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="/">
        <span><i class="fas fa-film"></i>movie_review<i class="fas fa-film"></i></span>
       </a>
      <table>
       <td class="nav__wrapper">
         <% if user_signed_in? %>
-         <td class="header-btn"><%= link_to 'マイページ', users_my_page_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-pager' %></td>
-         <td class="header-btn"><%= link_to "レビュー一覧", reviews_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info far fa-file-pdf' %></td>
-         <td class="header-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-sign-out-alt',data: { confirm: "ログアウトしますか?"} %></td>
+         <td class="header-btn"><%= link_to 'マイページ', users_my_page_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-dark fas fa-pager' %></td>
+         <td class="header-btn"><%= link_to "レビュー一覧", reviews_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-dark far fa-file-pdf' %></td>
+         <td class="header-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm btn-block nav-link text-dark fas fa-sign-out-alt',data: { confirm: "ログアウトしますか?"} %></td>
         <% else %>
-         <td class="header-btn"><%= link_to "当サイトについての注意事項" ,homes_about_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-eject' %></td>
-         <td class="header-btn"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-user-plus' %></td>
-         <td class="header-btn"><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-light btn-sm btn-block nav-link text-info fas fa-sign-in-alt' %></td>
+         <td class="header-btn"><%= link_to "当サイトについての注意事項" ,homes_about_path, class: 'btn btn-outline-warning btn-sm btn-block nav-link text-dark fas fa-eject' %></td>
+         <td class="header-btn"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-warning btn-sm btn-block nav-link text-dark fas fa-user-plus' %></td>
+         <td class="header-btn"><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-warning btn-sm btn-block nav-link text-dark fas fa-sign-in-alt' %></td>
         <% end %>
       </td>
      </table>

@@ -4,26 +4,38 @@
       <div class='mx-auto col-5 col-sm-5 col-lg-8 col-xl-8'>
         <h2><i class="fas fa-sign-in-alt">ログイン</i></h2>
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-          <div class="field">
-            <%= f.label :メールアドレス %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
+          <table class="table table-bordered table-condensed">
+            <tbody>
+              <div class="form-grop row mb-3">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>メールアドレス</td>
+                    <td class = "info border border-dark table-info">
+                      <%= f.text_area :email, autofocus: true, autocomplete: "email" %>
+                    </td>
+                  </tr>
+                </div>
+              </div>
         
-          <div class="field">
-            <%= f.label :パスワード %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </div>
-        
-          <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :パスワードを保存する %>
-            </div>
-          <% end %>
-        
-          <div class="actions">
-            <%= f.submit "ログイン",class: "btn btn-success" %>
-          </div>
+              <div class="form-grop row mb-3">
+                <div class="col-form-label col-sm-3">
+                  <tr class="col-xs-5 border border-dark table-light">
+                    <td>パスワード</td>
+                    <td class = "info border border-dark table-info">
+                      <%= f.password_field :password, autocomplete: "current-password" %>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+            </tbody>
+          </table>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :パスワードを保存する %>
+              </div>
+            <% end %>
+            <p><%= f.submit "ログイン",class: "btn btn-success" %></p>
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
