@@ -12,16 +12,16 @@
 .homes_back{
   width: 100%;
   height: 900px;
-  background-color: silver;
+  background-color: gold;
   animation: homes-back-change-color-anim 20s linear infinite;
 }
 
 @keyframes homes-back-change-color-anim {
   0%,100%{
-    background-color: silver;
+    background-color: gold;
   }
   50%{
-    background-color: gold;
+    background-color: #F3FFD8;
   }
 }
 
