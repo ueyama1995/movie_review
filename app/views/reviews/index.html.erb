@@ -10,7 +10,7 @@
         <div class='mx-auto col-5 py-3'>
           <div class="row offset-1 mb-4 ">
             <h1><i class="far fa-file-pdf">レビュー一覧</i></h1>
-            <p><%= link_to "見本は", reviews_about_path,class: "btn btn-primary" %></p>
+            <p><%= link_to "見本はこちら", reviews_about_path,class: "btn btn-primary" %></p>
             <p><%= link_to "投稿する",new_review_path, data: {"turbolinks" => false},class: "btn btn-success" %></p>
             <div class = "search_area">
               <%= render 'reviews/search', review: @review %>
