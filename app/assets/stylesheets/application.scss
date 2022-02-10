@@ -38,13 +38,17 @@ textarea#review_comment {
 }
 
 .header-btn{
-  background: linear-gradient(to bottom left, #8EF1FF	 50%, #FFFFAA	 50%);
+  background: linear-gradient(to bottom right, #8EF1FF 50%, #FFFFAA 50%);
   
 }
 
 .site-header{
   background: repeating-linear-gradient(-45deg, #111111, #111111 10px, #005FFF 10px, #005FFF 20px);
-  
+  -webkit-animation: stripeBg 60s linear infinite;
+  background-size: 30px 30px;
+  }
+@-webkit-keyframes stripeBg {
+100% {background-position: 100% 0;}
 }
 
 .navbar-nav{
