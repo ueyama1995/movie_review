@@ -8,7 +8,7 @@
   background-color: #FFFFEE;
   animation: user-container-change-color-anim 50s linear infinite;
 }
-@keyframes user-container-change-color-anim {
+@keyframes user-container-change-color-anim {/*色が50秒間内で5色変わる。それを繰り返す。*/
 	0%,100%{
 		background-color: #FFFFEE;
 	}

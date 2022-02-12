@@ -38,7 +38,7 @@ textarea#review_comment {
 }
 
 .header-btn{
-  background: linear-gradient(to bottom right, #8EF1FF 50%, #FFFFAA 50%);
+  background: linear-gradient(to bottom right, #8EF1FF 50%, #FFFFAA 50%);/*ヘッダーのボタンが2色かつ右斜めで区別*/
   
 }
 
@@ -47,7 +47,7 @@ textarea#review_comment {
   -webkit-animation: stripeBg 60s linear infinite;
   background-size: 30px 30px;
   }
-@-webkit-keyframes stripeBg {
+@-webkit-keyframes stripeBg {/*ヘッダーの背景が青と黒で右方向に動く。また線の間隔は10pxで背景のサイズは30pc*/
 100% {background-position: 100% 0;}
 }
 
