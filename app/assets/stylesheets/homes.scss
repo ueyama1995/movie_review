@@ -15,7 +15,9 @@
   background-color: gold;
   animation: homes-back-change-color-anim 20s linear infinite;
 }
-@keyframes homes-back-change-color-anim { /*背景が20秒間でgoldから#F3FFD8を*/
+
+/*背景が20秒間でgoldから#F3FFD8を*/
+@keyframes homes-back-change-color-anim { 
   0%,100%{
     background-color: gold;
   }
