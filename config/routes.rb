@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
    resource :likes, only: [:create, :destroy]
   end
-  
-  #映画のルーティング
-  resources :movies
 
   #顧客のルーティング
   patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
